@@ -1,0 +1,2 @@
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity0
+

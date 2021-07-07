@@ -1,0 +1,2 @@
+make verdi_src DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/conv_8x8_fc_int16
+

@@ -1,0 +1,13 @@
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity0
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity1
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity2
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity3
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity1_cvsram
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity2_cvsram
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sanity3_cvsram
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/sdp_relu_int16
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/pdp_max_pooling_int16
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/cc_alexnet_conv5_relu5_int16_dtest_cvsram
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/googlenet_conv2_3x3_int16
+make run  DUMP=1    DUMPER=VERDI  TESTDIR=../traces/traceplayer/conv_8x8_fc_int16
+
