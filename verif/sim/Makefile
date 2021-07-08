@@ -59,6 +59,8 @@
 
   export SPYGLASS_HOME := /home/tools/spyglass/SpyGlass-5.2.1.2/SPYGLASS_HOME
 
+  export VCS_TARGET_ARCH :=amd64 
+  
   IMAGEVIEWER       := gimp
 
 # ----------------------------------------------------------------------------
@@ -396,7 +398,7 @@ show_plusargs :
 VCS_TIMING_ARGS  := +nospecify +notimingchecks +define+VLIB_NO_UDP
 VCS_OK_WARNINGS  := +warn=noTFIPC +warn=noTMR
 
-VCS_64BIT_ARGS   := -full64
+VCS_64BIT_ARGS   := -full64 -LDFLAGS -Wl,--no-as-needed  
 
 ifeq ($(DUMP),1)
   ifeq ($(DUMPER),SILOTI)
@@ -578,10 +580,10 @@ check_cde_tests:
 
 # Build the example testbench 
 ${VCS_EXECUTABLE}:
-	${LSF_COMMAND} $(VCS_HOME)/bin/vcs -f ${DUTFILE} -Xddg=0x1 -o ${VCS_EXECUTABLE} -cpp ${VCS_CC} ${VCS_ARGS} ${VERDI_PLI} ${TB_FILES} -l ${COMPILELOG} ${DUT_DEFINES} ${VERDI_LD_FLAGS} ${VCS_PARTIION_ARGS}
+	${LSF_COMMAND} $(VCS_HOME)/bin/vcs ${VCS_ARGS} -f ${DUTFILE} -Xddg=0x1 -o ${VCS_EXECUTABLE} -cpp ${VCS_CC}  ${VERDI_PLI} ${TB_FILES} -l ${COMPILELOG} ${DUT_DEFINES} ${VERDI_LD_FLAGS} ${VCS_PARTIION_ARGS}
 
 build : dut
-	${LSF_COMMAND} $(VCS_HOME)/bin/vcs -f ${DUTFILE} -Xddg=0x1 -o ${VCS_EXECUTABLE} -cpp ${VCS_CC} ${VCS_ARGS} ${VERDI_PLI} ${TB_FILES} -l ${COMPILELOG} ${DUT_DEFINES} ${VERDI_LD_FLAGS} ${VCS_PARTIION_ARGS} -Mdir=${VCS_EXECUTABLE}Csrc ; ./checkcompile.pl ${COMPILELOG} ${VCS_EXECUTABLE}
+	${LSF_COMMAND} $(VCS_HOME)/bin/vcs ${VCS_ARGS} -f ${DUTFILE} -Xddg=0x1 -o ${VCS_EXECUTABLE} -cpp ${VCS_CC}  ${VERDI_PLI} ${TB_FILES} -l ${COMPILELOG} ${DUT_DEFINES} ${VERDI_LD_FLAGS} ${VCS_PARTIION_ARGS} -Mdir=${VCS_EXECUTABLE}Csrc ; ./checkcompile.pl ${COMPILELOG} ${VCS_EXECUTABLE}
 
 # Build dumper
 dumper:  vericom esa

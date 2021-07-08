@@ -29,7 +29,7 @@ PERL := /usr/bin/perl
 JAVA := /usr/synopsys/Verdi3_L-2016.06-1/bin/java
   																  
 ## systemc: needed for Cmodel build (optional)                       
-SYSTEMC := /usr/local/systemc-2.3.0
+SYSTEMC := /usr/local/systemc-2.3.0/
   																  
 ## verilator: used to build testbench without VCS (optional)
 VERILATOR := /usr/bin/verilator
