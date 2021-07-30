@@ -428,7 +428,7 @@ VCS_ARGS     := ${DEFFILE} \
 		+libext+.v \
 		+libext+.sv \
 		-timescale=1ns/1ns \
-		-debug_all \
+		-debug_all -lca -kdb  \
                 +define+NVTOOLS_SYNC2D_GENERIC_CELL \
 		+define+NO_PERFMON_HISTOGRAM \
 		+define+PRAND_OFF \
@@ -638,6 +638,10 @@ verdi_src :
 
 verdi :
 	${LSF_COMMAND} $(VERDI_HOME)/bin/verdi -ssy -ssv -nologo -lib ${VERICOM_LIB} ${VERDI_BDB_OPTIONS} -top 'top' -DE '-full_time'  ${VERICOM_DUT_DEFINES} -tkName siloti_tkName_nvdla -ssf ${SIMTESTDIR}/$(subst fsdb,vf,${VERDI_DUMP_NAME}) &
+
+
+verdi_simv:
+	verdi  -elab simv.daidir/kdb  &
 
 # Run the Verdi waveform viewer with smaller esa fsdb
 siloti :
